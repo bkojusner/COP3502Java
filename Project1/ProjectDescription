@@ -1,0 +1,50 @@
+Project 1: Fluffy Swarm
+COP 3502 Spring 2017
+Due: Feb 3, 2017 at 3:00PM
+
+The Department of Defense is developing cutting-edge technology for drone swarms: these are autonomous flying vehicles that are controlled by artificial intelligence, so they do not need any human pilot or remote control. These drones are dropped from planes flying above the target area, and self-organize into a group that provides good camera coverage of large areas of land. 
+While Department of Defense is using this kind of technology to catch bad guys, you are being asked to leverage it for a much different purpose: finding lost pets! Imagine a drone swarm that can self-organize to cover an entire neighborhood in search of lost Fluffy or Fido, reporting its exact coordinates back to its distraught owner. Oh, the happy reunions that are to come!
+But one of the most important aspects of autonomous drone swarms is that each drone must ensure that it is not too close to any other drone, lest they collide. It also must make sure that it does not get too far from the other drones, lest they lose radio contact with each other. Your job is to create a computer program that calculates how far two drones are from each other, determines whether they have overlapping camera coverage, and tells whether the two drones need to move closer to each other or farther away.
+To execute this very important mission, you must create a Java program that does the following.
+First, you must ask your user to enter the coordinates and altitude of two different drones. For the purposes of the coordinates, the location of the launch is considered (0,0) and the drones can be located in any quadrant. For example, a drone that is located at (1,3) is 1 foot east and 3 feet north of the launch point. A drone that is located at (-4, 8) is 4 feet west and 8 feet north of the launch point. The user will enter the x and y coordinate in two separate input lines. Finally, you must ask the user to enter the altitude of drone 1 in feet; for example, 200 feet or 1391 feet. Then repeat for drone 2. Note: the user can enter decimals numbers (5.25, 43.6).  
+ 
+Use the coordinates to compute the (x,y) distance between the two drones – this will tell you if their camera views overlap or not. If the distance between the two drones is less than 1 foot, then their camera views overlap and they should move farther apart in the (x,y) dimension. If they are more than 500 feet apart, they must move closer together in the (x,y) dimension. 
+Note: The paragraph below was updated on Mon Jan 23 in order to emphasize the original instructions. If you completed the project before this, you must re-read carefully to ensure that you understood the original instructions.
+Next, use the coordinates plus altitudes to compute how far apart the drones are in actual distance. Drones could be only 1 foot apart in terms of their (x,y) coordinates but they could be 10,000 feet apart in altitude, so these are different measures. If two drones are less than 1 foot apart total they must move farther apart. If they are more than 500 feet apart total, they must move closer together. Note: To compute total distance, you must use 3-dimensional distance, not simply subtract the difference in altitudese. Also, the user can input a decimal number. 
+
+Example output of running this program:
+Please enter the x coordinate of Drone 1: 
+4
+Please enter the y coordinate of Drone 1: 
+-12
+Please enter the altitude of Drone 1: 
+800
+Please enter the x coordinate of Drone 2: 
+-7
+Please enter the y coordinate of Drone 2: 
+3
+Please enter the altitude of Drone 2: 
+1303
+
+The two drones are 18.601075237738275 feet apart in (x,y) coordinates. They do not need to move farther apart or closer together in (x,y). 
+The two drones are 503.343818875329 feet apart in 3D space. They need to move closer together. 
+The template for output is as follows:
+The two drones are [fill-in] feet apart in (x,y) coordinates. They [do not need to move farther apart or closer][need to move closer together][need to move farther apart] in (x,y). 
+
+The two drones are [fill-in] feet apart in 3D space. They [do not need to move farther apart or closer][need to move closer together][need to move farther apart].
+
+
+Example Console Output:
+ 
+Your input and output should be formatted precisely as above. Different wording or spacing will cause you to lose points on your grade.*
+*Note: If you keep full floating-point precision, you will get long decimal numbers like the ones you see in the screenshot above. Your long numbers may not precisely match the ones above as you move into the tiny decimal places, because of floating point estimation (as discussed in your textbook). This is fine. 
+**Optional: If you wish, you may format your answers to show only a few decimal places. There are several ways to do this, which you may find by looking in the textbook or even googling. We will get to it later in the class, so it is not required for this project. 
+
+
+
+ 
+Grading Rubric:
+Correct Calculations for All Combinations of Test Cases (drones in different quadrants; closer/farther/none output in x/y; closer/farther/none output in altitude) 	60
+Code Style (proper use of whitespace, meaningful variable names)	15
+Documentation (proper use of comments)	10
+Correct formatting of console input and output	15
