@@ -1,0 +1,862 @@
+Project 4 Due Monday 4/24 3:00pm
+
+Computer Science Intern
+
+
+
+
+
+Surprise! You are permitted to work in pairs on Project 4. Your partner MUST BE in the same lab as you (same section). No exceptions. No groups of three are permitted. You are not required to have a partner. You may work individually.
+
+
+Partner Declaration Deadline: BOTH you and your partner must email your TA notifying that you are working together. If both emails are not received, you must work individually. The deadline for both emails is 4/14/2017 at 4:00PM
+
+
+Slip Days with Partner: The number of slip days that can be declared is the least amount of slip day that either partner has. Chart provided:
+
+
+Submission: Regardless if you work alone or with a partner, you must zip the project. The root of the zip files should be all the .java files, NOT a folder containing the .java files
+
+
+Skeleton Code: (Link)
+https://uflorida-my.sharepoint.com/personal/keboyer_ufl_edu/_layouts/15/guestaccess.aspx?docid=02a087e17c51d4bdaa29f9685578d8fdd&authkey=AdPyXmqNg9ZB-CvhjcGu86c
+
+
+
+Student A Remaining Slip Days
+
+Student B Remaining Slip Days
+
+Team's Usable Slip Days
+
+2
+
+2
+
+2
+
+2
+
+1
+
+1
+
+2
+
+0
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+
+
+The scene:
+
+You’re a passionate, outgoing Computer Science/Engineering Major at the University of Florida. During your hunt for a Summer Internship, you happened upon a nice, little internship for a paper sales company in Scranton, Pennsylvania. They are looking for someone to create a program to read in files for their employees’ tasks for the day. The receptionist, Pam, generates the text file for you to input, (You can find an example of the format below). Your program must read from this text file and then print output to the console. This is not an interactive program: you run it, and then it gives output.
+
+
+Your program will be structured with a main class called Employee. That class will have subclasses as follows:
+
+RegionalManager
+
+AssistantRegionalManager
+
+SalesAssociate
+
+Receptionist
+
+
+Your main method will be inside a class called TheOffice. That class will also be instantiable, so it will have a constructor. For member variables, it will have a private array of Employee objects.
+
+
+Note that the input file could have an employee ID more than once because there is only one task per line, but each employee can receive many tasks.
+
+
+Once you have the array of Employee objects, you will need to sort it by employee name, then you will print them out.
+
+
+
+Employee.java
+
+        Variables:
+
+private int IDNumber;
+
+        private String name;
+
+        private Task[] taskList;
+
+        
+
+        Constructor
+
+        Employee(int IDNumber, String name, Task[] taskList)
+
+        
+
+        Methods
+
+getIDNumber -- getter
+
+setIDNumber -- setter
+
+getName -- getter
+
+setName -- setter
+
+getTaskList -- getter
+
+setTaskList -- setter
+
+toString -- Name, ID, and task. Look at the example for the format.
+
+Note after EVERY colon (:) there is a single space after it (this must be included)
+
+Note that there must be NO newline (\n) at the very end of the entire string
+
+Note that the each Task is formatted exactly described in the Task’s toString method
+
+equals -- This will be provided to you and must be included!
+
+
+Here is an example of Employee toString
+
+
+Name: Michael Scott
+
+ID: 1
+
+Task List:
+
+Task: Fight Charles        Level: 10
+
+Task: Marry Holly        Level: 10
+
+Task: Form Michael Scott Paper Company        Level: 9
+
+Task: Lead meeting        Level: 8
+
+Task: Make Commercial        Level: 8
+
+
+
+
+
+RegionalManager.java        
+
+Variables:
+
+        private int RegionNum;
+
+        private Employee[] subordinates;
+
+        private int minimumTask;
+
+
+        Constructors
+
+        RegionalManager(int IDNumber, String name, Task[] taskList, int RegionNum, Employee[] subordinates, int minimumTask)
+
+        RegionalManager(int IDNumber, String name, Task[] taskList, int RegionNum, int minimumTask) -- Note: Does not take an Employee array
+
+
+        Methods:
+
+        getRegionNum -- getter
+
+        setRegionNum -- setter
+
+        getSubordinates -- getter
+
+        setSubordinates - setter
+
+        getMinimumTask -- getter
+
+        setMininumTask - setter
+
+        toString -- Title, Own Employee details (Own name, own, id,  ect… Formatted exactly
+
+Employee’s toString method), region number, Minimum task level, and Employees.
+
+Note after EVERY colon (:) there is a single space after it (this must be included)
+
+Note that there must be NO newline (\n) at the very end of the entire string
+
+Note that the each of its Employee is formatted exactly like it’s respective toString method
+
+        equals -- This will be provided to you and must be included!
+
+
+        
+
+Here is an example of RegionalManager toString (Note, the only employees working for Michael are Dwight  and Jim in this example.)
+
+
+Regional Manager
+
+Name: Michael Scott
+
+ID: 1
+
+Task List:
+
+        Task: Fight Charles        Level: 10
+
+        Task: Marry Holly        Level: 10
+
+        Task: Form Michael Scott Paper Company        Level: 9
+
+        Task: Lead meeting        Level: 8
+
+        Task: Make Commercial        Level: 8
+
+Region Number: 10
+
+Minimum Task Level: 8
+
+Employees:
+
+Assistant Regional Manager
+
+Name: Dwight Kurt Schrute III
+
+ID: 2
+
+Task List:
+
+        Task: Help Michael Scott        Level: 8
+
+        Task: Start Fire Drill        Level: 5
+
+        Task: Start Gun Safety Presentation        Level: 10
+
+Regional Manager: Michael Scott
+
+Minimum Task Level: 5
+
+Sales Associate
+
+Name: James Duncan Halpert
+
+ID: 3
+
+Task List:
+
+        Task: Sell paper        Level: 3
+
+        Task: Say Hi to Pam        Level: 10
+
+Regional Manager: Michael Scott
+
+Number of clients: 5
+
+Products to sell:
+
+        100x white paper
+
+        Sabre Printer
+
+        Sabre Copier
+
+
+
+
+AssistantRegionalManager.java
+
+
+Variables:        
+
+private RegionalManager manager;
+
+        private int minimumTask; - Note: this cannot be higher than its regional manger
+
+
+
+        Constructor
+
+        AssistantRegionalManager(int IDNumber, String name, Task[] taskList, RegionalManager manager, int minimumTask)
+
+
+        Methods
+
+        getManager -- getter
+
+        setManager -- setter
+
+        getMinimumTask -- getter
+
+        setMinimumTask -- setter
+
+toString -- Title, Own Employee details (Own name, own, id,  ect… Formatted exactly
+
+Employee’s toString method), Regional Manager they work for, Minimum task level.
+
+Note after EVERY colon (:) there is a single space after it (this must be included)
+
+Note that there must be NO newline (\n) at the very end of the entire string
+
+Note that the each of its Employee is formatted exactly like it’s respective toString method
+
+        equals -- This will be provided to you and must be included!
+
+
+Here is an example of AssistantRegionalManager toString
+
+
+Assistant Regional Manager
+
+Name: Dwight Kurt Schrute III
+
+ID: 2
+
+Task List:
+
+        Task: Help Michael Scott        Level: 8
+
+        Task: Start Fire Drill        Level: 5
+
+        Task: Start Gun Safety Presentation        Level: 10
+
+Regional Manager: Michael Scott
+
+Minimum Task Level: 5
+
+
+SalesAssociate.java
+
+
+        Variables:
+
+        private int numClients;
+
+        private String[] products;
+
+        private RegionalManager supervisor;
+
+
+        Constructor
+
+SalesAssociate(int IDNumber, String name, Task[] taskList, int numClients, String[] products, RegionalManager supervisor)
+
+
+Methods
+
+getNumClients -- getter
+
+setNumClients -- setter
+
+getProducts -- getter
+
+setProducts -- setter
+
+getSupervisor - getter
+
+setSupervisor - setter
+
+toString -- Title, Own Employee details (Own name, own  id,  ect… Formatted exactly
+
+Employee’s toString method), Regional Manager they work for, number of clients.
+
+Note after EVERY colon (:) there is a single space after it (this must be included)
+
+Note that there must be NO newline (\n) at the very end of the entire string
+
+Note that the each of its Employee is formatted exactly like it’s respective toString method
+
+        equals -- This will be provided to you and must be included!
+
+        
+
+        Note: Both Sales Associates and Receptionists have a minimum task level of 1.
+
+
+Here is an example of SalesAssociate toString
+
+
+Sales Associate
+
+Name: James Duncan Halpert
+
+ID: 3
+
+Task List:
+
+        Task: Sell paper        Level: 3
+
+        Task: Say Hi to Pam        Level: 10
+
+Regional Manager: Michael Scott
+
+Number of clients: 5
+
+Products to sell:
+
+        100x white paper
+
+        Sabre Printer
+
+        Sabre Copier
+
+
+Receptionist.java
+
+        Variables:
+
+        private AssistantRegionalManager supervisor;
+
+        private int maxTaskComplexityLevel;
+
+
+        Constructor
+
+        Receptionist(int IDNumber, String name, Task[] taskList, AssistantRegionalManager supervisor, int maxTaskComplexityLevel)
+
+        
+
+        Methods
+
+        getSupervisor -- getter
+
+        setSupervisor -- setter
+
+        getMaxTaskComplexityLevel -- gettter
+
+        setMaxTaskComplexityLevel -- setter
+
+        toString -- Title, Own Employee details (Own name, own  id,  ect… Formatted exactly
+
+Employee’s toString method), Assistant Regional Manager they work for, Max task level.
+
+Note after EVERY colon (:) there is a single space after it (this must be included)
+
+Note that there must be NO newline (\n) at the very end of the entire string
+
+Note that the each of its Employee is formatted exactly like it’s respective toString method
+
+        equals -- This will be provided to you and must be included!
+
+
+        Note: Both Sales Associates and Receptionists have a minimum task level of 1.
+
+
+        
+
+Here is an example of Receptionist toString
+
+
+Receptionist
+
+Name: Pamela Morgan Beesly
+
+ID: 4
+
+Task List:
+
+        Task: Record Threat Level Midnight        Level: 5
+
+        Task: Make Copies        Level: 3
+
+        Task: Set up printer        Level: 5
+
+Assistant Regional Manager: Dwight Kurt Schrute III
+
+Max Task Level: 5
+
+
+Task.java
+
+        Note: Task must be Immutable
+
+
+Variables:
+
+        private String name;
+
+        private int level;
+
+        
+
+        Constructor
+
+        Task(String name, int level)
+
+
+Methods
+
+getName -- getter
+
+getLevel -- getter
+
+        toString -- Tab, name, Tab, level
+
+Note after EVERY colon (:) there is a single space after it (this must be included)
+
+Note that there must be NO newline (\n) at the very end of the entire string
+
+Note that the each of its Employee is formatted exactly like it’s respective toString method
+
+        equals -- This will be provided to you and must be included!
+
+
+
+Here is an example of Task toString
+
+
+        Task: Record Threat Level Midnight        Level: 5
+
+
+TheOffice.java
+
+        Note: This Class also has the main class
+
+
+        Variables
+
+        private Employee[] workers;
+
+
+        Constructor
+
+TheOffice() -- no args constructor. Must be empty
+
+        TheOffice(String fileLoc)
+
+
+        This constructor will take a String that has the file name. You need to open the file and read the contents. (Contents on the .txt file is provided down below). The constructor will initialize the workers array.
+
+        Important Note: The .txt file must be placed in the parent class of the src folder. Placing it in the src folder will cause it to throw an exception.
+
+        Also note that parts of the constructor have been filled up for you. You will need to code the rest.
+
+
+        Note: If the minimum task level for an assistant regional manager is higher than the minimum task level for its regional manager, then you need to throw a TaskLevelException (taking in the assistant regional manager's minimum task level as a parameter). Also, if a task for a given employee is lower than their minimum task level, then a TaskLevelException must be thrown as well. An example of this can be found in the skeleton code.
+
+
+        Hint: The FILE given in the constructor will have ONE Regional Manager, but can have more than one Assistant Regional Manager. However, ALL the receptionist will work for the FIR        ST Assistant Regional Managers read from the file.
+
+        Hint: The Regional Manager cannot know all the employees passed (however it will know how many employees are working under him.)
+
+
+        Methods
+
+getWorkers -- getter
+
+setWorkers -- setter (Note: we can set an array with more than one regional manager)
+
+        toString -- will call the toString method for Regional Managers only. There is a newline between each call. However, note that there must be NO newline (\n) at the very end of the entire string
+
+        levelDisplay -- will make and return a string that has employees’ name and their minimum task level. Note that there must be NO newline (\n) at the very end of the entire string. The display is not done inside this method.
+
+
+        main -- Takes a command line argument for the file name without the “.txt” that is needed at the end. Must create a TheOffice object, display it, display by level,  sort, then display by level (This is given to you)
+
+
+Sample output at end of doc.
+
+
+TaskLevelException.java
+
+        Note: The entire class is provided to you. Do not edit it!
+
+        Note: This is the exception that must be thrown when there is a Task Level Error
+
+        
+
+Variables
+
+private int level;
+
+ 
+
+Constructor
+
+TaskLevelException(int level){
+
+
+Method  
+
+getLevel
+
+
+
+Sorter.java
+
+Contains only a static method sort(Employee []) and returns a reference to the sorted Employee []. It does not matter whether you sort in place (modifying the original) or whether you make a sorted copy. Just make sure to return the sorted one.
+
+
+The array must be sorted by the name of the employee in ascending alphabetical order.
+
+
+
+
+*.txt
+
+These are the Files Provided
+
+
+
+Here is a link to a sample input text file
+
+
+https://uflorida-my.sharepoint.com/personal/keboyer_ufl_edu/_layouts/15/guestaccess.aspx?docid=06a57deb089094dedb8f1381b6a9301ad&authkey=AbulgrLXfOxgwLtdhaS4300
+
+
+Format:
+
+The 1st line is how many employees work at the office (including the Regional Manager)
+
+The 2nd line is the Type of employee. The 2nd Line will always be a RegionalManager
+
+The 3rd line is ID
+
+The 4th line is the regional manager name
+
+The 5th line is number Tasks (Let’s call it x)
+
+Under that there will be 2x-number of lines which are the tasks, and the following line will
+
+be the level.
+
+Example:
+
+Make Commercial
+
+8
+
+The next line is Region Number
+
+The next line is the minimum task level
+
+
+The next line will be the Employee type (excluding Regional Manager). However, an assistant regional manager will be read before you read the first receptionist.(This means in the order of the file, at least one Regional Manager will above all receptionist).  
+
+If it is an Assistant Regional Manager:
+
+        Next line: ID
+
+        Next line: Name of Assistant  Regional Manager
+
+        Next line: Number of Tasks (let’s call it x)
+
+        Next 2x lines(2 lines per task):  tasks, and the followed on a new line will be the
+
+level
+
+Example:
+
+Start Fire Drill
+
+5
+
+Next line: Minimum Task Level
+
+        
+
+
+If it is an Sales Associate:
+
+        Next line: ID
+
+        Next line: Name of Sales Associate
+
+Next line: Number of Tasks (let’s call it x)
+
+        Next 2x lines(2 lines per task):  tasks, and the followed on a new line will be the
+
+Level
+
+Example:
+
+Sell paper
+
+3
+
+Next line: number of clients
+
+        Next line: number of products the Sales Associate has (let’s call it y)
+
+        Next y lines: The product
+
+        
+
+
+
+If it is a Receptionist
+
+        Next line: ID
+
+        Next line: Name of Receptionist
+
+        Next line: Number of Tasks (let’s call it x)
+
+        Next 2x lines(2 lines per task):  tasks, and the followed on a new line will be the
+
+Level
+
+Example:
+
+Make Copies
+
+3
+
+        Next line: Maximum Task Level
+
+        
+
+
+
+
+        
+
+        
+
+        
+
+
+
+
+        
+
+
+
+
+        
+
+ 
+
+
+
+        
+
+
+
+
+
+Sample Output:
+
+Regional Manager
+
+Name: Michael Scott
+
+ID: 1
+
+Task List:
+
+        Task: Fight Charles        Level: 10
+
+        Task: Marry Holly        Level: 10
+
+        Task: Form Michael Scott Paper Company        Level: 9
+
+        Task: Lead meeting        Level: 8
+
+        Task: Make Commercial        Level: 8
+
+Region Number: 10
+
+Minimum Task Level: 8
+
+Employees:
+
+Assistant Regional Manager
+
+Name: Dwight Kurt Schrute III
+
+ID: 2
+
+Task List:
+
+        Task: Help Michael Scott        Level: 8
+
+        Task: Start Fire Drill        Level: 5
+
+        Task: Start Gun Safety Presentation        Level: 10
+
+Regional Manager: Michael Scott
+
+Minimum Task Level: 5
+
+Sales Associate
+
+Name: James Duncan Halpert
+
+ID: 3
+
+Task List:
+
+        Task: Sell paper        Level: 3
+
+        Task: Say Hi to Pam        Level: 10
+
+Regional Manager: Michael Scott
+
+Number of clients: 5
+
+Products to sell:
+
+        100x white paper
+
+        Sabre Printer
+
+        Sabre Copier
+
+Receptionist
+
+Name: Pamela Morgan Beesly
+
+ID: 4
+
+Task List:
+
+        Task: Record Threat Level Midnight        Level: 5
+
+        Task: Make Copies        Level: 3
+
+        Task: Set up printer        Level: 5
+
+Assistant Regional Manager: Dwight Kurt Schrute III
+
+Max Task Level: 5
+
+
+
+Name: Michael Scott        Level: 8
+
+Name: Dwight Kurt Schrute III        Level: 5
+
+Name: James Duncan Halpert        Level: 1
+
+Name: Pamela Morgan Beesly        Level: 1
+
+
+
+
+Name: Dwight Kurt Schrute III        Level: 5
+
+Name: James Duncan Halpert        Level: 1
+
+Name: Michael Scott        Level: 8
+
+Name: Pamela Morgan Beesly        Level: 1
+
+
+
+
+TheOffice_UML.jpg
